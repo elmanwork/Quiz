@@ -8,7 +8,7 @@ export interface IThemeProviderProps {
   children: ReactChild;
 }
 
-export const ThemeContext = createContext<IThemeContext | undefined>(undefined);
+export const ThemeContext = createContext<IThemeContext | null>(null);
 
 export const ThemeProvider: FC<IThemeProviderProps> = ({ children }: IThemeProviderProps) => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -22,14 +22,16 @@ export const ThemeProvider: FC<IThemeProviderProps> = ({ children }: IThemeProvi
     switch(theme){
         case Theme.DARK:
             themeObj = {
-                primaryColor: "#00adb5"
+                primaryColor: "#108ee9",
+                infoColor: "red"
             }
         break;
 
         case Theme.LIGHT:
         default:  
             themeObj = {
-                primaryColor: "red"
+                primaryColor: "red",
+                infoColor: "yellow"
             }
         break;
     }

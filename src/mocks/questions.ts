@@ -3,6 +3,7 @@ import { QuestionType } from "types/enums";
 
 export const questions: IQuestion[] = [
     {
+        id: "abc",
         question: "In 1768, Captain James Cook set out to explore which ocean?",
         type: QuestionType.SINGLE_ANSWER,
         options: [
@@ -14,6 +15,7 @@ export const questions: IQuestion[] = [
         correctOption: ["A"],
     },
     {
+        id: "ytu",
         question: "Which of the following is NOT a fruit?",
         type: QuestionType.MULTIPLE_ANSWERS,
         options: [
@@ -25,6 +27,7 @@ export const questions: IQuestion[] = [
         correctOption: ["B", "D"],
     },
     {
+        id: "urn",
         question: "What is the last name of first president of united states?",
         type: QuestionType.TEXT,
         correctOption: ["Washington"],

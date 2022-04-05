@@ -4,6 +4,6 @@ export const fetchQuestions = () => {
     return new Promise((resolve) => {
         setTimeout(()=>{
             resolve(questions);
-        }, 3000)
+        }, 1000)
     })
 }
