@@ -1,4 +1,4 @@
 export * from './IReduxAction';
-export * from './IStateStore';
-export * from './userRoles.enum';
 export * from './IAppConfig';
+export * from './IThemeContext';
+export * from './IStateStore';

@@ -1,7 +1,9 @@
-import { combineReducers, Reducer, AnyAction } from 'redux';
-import { IStateStore } from 'types';
+import { combineReducers, AnyAction } from 'redux';
+import { StoreEntities } from 'types/enums';
+import { questionsReducer } from './questions/questions.reducers';
 
-export const rootReducer = (): Reducer<IStateStore> => (state, action: AnyAction) => {
-
-    return combineReducers({})
+export const rootReducer = (state: any, action: AnyAction) => {
+    return combineReducers({
+        [StoreEntities.QUESTIONS]: questionsReducer,
+    })(state, action);
 }

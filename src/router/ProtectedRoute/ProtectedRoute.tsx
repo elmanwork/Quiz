@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { UserRoles } from "types";
+import { UserRoles } from "types/enums";
 
 export interface IProtectedRouteProps {
     requiredRoles?: UserRoles[];

@@ -1,11 +1,12 @@
-import { applyMiddleware, compose, Middleware, StoreEnhancer, createStore } from "redux";
-import persistStore from "redux-persist/es/persistStore";
+import { applyMiddleware, compose, Middleware, StoreEnhancer, createStore, Reducer } from "redux";
 import storage from "redux-persist/es/storage";
-import { persistReducer } from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import createSagaMiddleware from "redux-saga";
 import { rootReducer } from "./root.reducer";
 import { createLogger } from 'redux-logger';
 import { rootSaga } from "./root.saga";
+import { StateType } from "typesafe-actions";
+import { IStateStore } from "types";
 
 const getComposer = (): (<R>(a: R) => R) => {
     if (window !== undefined && window.window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
@@ -34,9 +35,10 @@ const middlewareEnhancer = getMiddlewareEnhancer(sagaMiddleware);
 const persistRootReducer = persistReducer(persistConfig, rootReducer);
 
 const store = createStore(persistRootReducer, composeEnhancers(middlewareEnhancer));
-
 const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);
 
-export { persistor, store }
+type RootState = StateType<Reducer<IStateStore>>;
+
+export { persistor, store, RootState }
