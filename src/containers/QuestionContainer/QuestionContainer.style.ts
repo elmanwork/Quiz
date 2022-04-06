@@ -13,7 +13,14 @@ const spin:CSSProperties = {
     transform: "translate(-50%, -50%)",
 }
 
+const nextBtn:CSSProperties = {
+    position: "absolute",
+    bottom: "2rem",
+    right: "2rem",
+}
+
 export default {
     spin,
-    card
+    card,
+    nextBtn
 }
